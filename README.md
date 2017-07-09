@@ -11,7 +11,7 @@ The uuid package generates and inspects UUIDs based on [RFC 4122](http://tools.i
 Full `go doc` style documentation for the package can be viewed online without installing this package by using the GoDoc site here: 
 http://godoc.org/github.com/womblebob/uuid
 
-This is a fork of code.google.com/p/go-uuid with only one modification, teh default implementation of the Scanner interface for database marshalling does not work for SQL Server due to the fact that it uses a different endian format.
+This is a fork of code.google.com/p/go-uuid with only one modification, the default implementation of the Scanner interface for database marshalling does not work for SQL Server due to the fact that it uses a different endian format.
 
 uuid.DefaultScanner = uuid.SqlServerScanner{}
 
