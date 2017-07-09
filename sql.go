@@ -105,23 +105,7 @@ func (s *SqlServerScanner) Scan(val interface{}, uuid *UUID) error {
 		return uuid.UnmarshalBinary(raw[:])
 
 	case string:
-		/*
-			if len(vt) != 36 {
-				return errors.New("mssql: invalid UniqueIdentifier string length")
-			}
-
-			b := []byte(vt)
-			for i, c := range b {
-				switch c {
-				case '-':
-					b = append(b[:i], b[i+1:]...)
-				}
-			}
-
-			*uuid = make([]byte, 16)
-			_, err := hex.Decode(*uuid, []byte(b))*/
 		return uuid.UnmarshalText([]byte(vt))
-		//return err
 	default:
 		return fmt.Errorf("mssql: cannot convert %T to UUID, %u", val, vt)
 	}
